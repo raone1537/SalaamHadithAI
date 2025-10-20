@@ -1,0 +1,18 @@
+SalaamHadithAI/react-app/
+│
+├── package.json
+├── public/
+│   ├── index.html
+│   └── data/
+│       ├── quran.json
+│       └── hadith.json
+│
+└── src/
+    ├── App.js
+    ├── index.js
+    ├── App.css
+    └── components/
+        ├── Clock.js
+        ├── ThemeToggle.js
+        ├── SearchBox.js
+        ├── PaymentPanel.js
