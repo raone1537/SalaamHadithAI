@@ -1,1 +1,15 @@
 
+{
+  "name": "salaam-hadith-ai",
+  "version": "1.0.0",
+  "description": "Salaam Hadith AI + Qur'an (React version) with Pi SDK sandbox and bilingual interface",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
