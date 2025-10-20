@@ -1,0 +1,40 @@
+import React, { useState } from "react";
+
+export default function SearchBox({ lang }) {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+
+  async function search() {
+    const quran = await fetch("/data/quran.json").then(res => res.json());
+    const hadith = await fetch("/data/hadith.json").then(res => res.json());
+    const all = [...quran, ...hadith];
+    const found = all.filter(item =>
+      item.text.toLowerCase().includes(query.toLowerCase())
+    );
+    setResults(found);
+  }
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={query}
+        placeholder={lang === "ar" ? "بحث..." : "Search..."}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <button onClick={search}>{lang === "ar" ? "بحث" : "Search"}</button>
+
+      <div id="results">
+        {results.length === 0 ? (
+          <p>{lang === "ar" ? "لا توجد نتائج" : "No results yet"}</p>
+        ) : (
+          results.map((r, i) => (
+            <p key={i}>
+              <strong>{r.source}</strong>: {r.text}
+            </p>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
